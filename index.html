@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Marufa Mulla — Aspiring Software Developer and AI & ML Enthusiast">
+<title>Marufa Mulla | Software Developer · AI & ML</title>
+<style>
+:root{
+  --bg:#050505;--fg:#f4f4f0;--muted:#999;--line:#242424;--card:#0c0c0c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;
+  background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+  background-size:70px 70px;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.cursor{position:fixed;width:16px;height:16px;border:1px solid #fff;border-radius:50%;pointer-events:none;z-index:50;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .2s,height .2s}
+header{
+  position:fixed;top:0;left:0;right:0;z-index:20;padding:24px 5vw;
+  display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(#050505,transparent);
+}
+.logo{font-weight:800;letter-spacing:.18em;font-size:13px}
+nav{display:flex;gap:22px;font-size:11px;letter-spacing:.12em;color:#aaa}
+nav a:hover{color:white}
+main{position:relative}
+section{min-height:100vh;padding:120px 7vw 70px;display:flex;align-items:center;position:relative}
+.hero{min-height:100vh}
+.hero-inner{max-width:1100px}
+.kicker{font-size:11px;letter-spacing:.3em;color:#999;margin-bottom:25px}
+h1{font-size:clamp(60px,11vw,150px);line-height:.82;letter-spacing:-.075em;margin:0;text-transform:uppercase}
+.stroke{color:transparent;-webkit-text-stroke:1px var(--fg)}
+.hero p{max-width:650px;color:#b5b5b5;line-height:1.8;font-size:16px;margin:38px 0}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid #333;padding:8px 11px;font-size:10px;letter-spacing:.1em}
+.scroll{position:absolute;bottom:30px;left:7vw;color:#777;font-size:10px;letter-spacing:.2em}
+.number{position:absolute;right:7vw;top:50%;color:#555;font-size:11px;letter-spacing:.2em}
+.container{width:100%;max-width:1150px}
+.section-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:35px}
+.section-head h2{font-size:clamp(35px,6vw,72px);letter-spacing:-.06em;margin:0}
+.section-head span{color:#666;font-size:11px;letter-spacing:.15em}
+.about-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:55px}
+.big{font-size:clamp(25px,4vw,48px);line-height:1.1;letter-spacing:-.045em;margin:0}
+.muted{color:#999;line-height:1.8}
+.info{border-top:1px solid var(--line)}
+.info-row{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}
+.info-row span:last-child{color:#888;text-align:right}
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.skill{border:1px solid var(--line);padding:22px;min-height:145px;transition:.25s}
+.skill:hover{transform:translateY(-6px);border-color:#777}
+.skill b{font-size:17px;display:block;margin:18px 0 9px}
+.skill small{color:#888;line-height:1.6}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.project{
+  border:1px solid var(--line);background:var(--card);padding:28px;min-height:270px;
+  position:relative;overflow:hidden;transition:.3s;
+}
+.project:after{
+  content:"↗";position:absolute;right:24px;bottom:20px;font-size:24px;color:#555;
+  transition:.3s;
+}
+.project:hover{transform:translateY(-7px);border-color:#777}
+.project:hover:after{color:white;transform:translate(4px,-4px)}
+.project .num{font-size:10px;color:#666;letter-spacing:.2em}
+.project h3{font-size:27px;letter-spacing:-.04em;margin:22px 0 12px;max-width:480px}
+.project p{color:#999;line-height:1.65;font-size:13px;max-width:500px}
+.project .tech{display:flex;gap:7px;flex-wrap:wrap;margin-top:25px}
+.tech span{border:1px solid #303030;padding:5px 8px;font-size:9px;color:#aaa}
+.timeline{border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:25px 0;border-bottom:1px solid var(--line)}
+.item .date{font-size:11px;color:#777;letter-spacing:.12em}
+.item h3{margin:0 0 7px;font-size:18px}
+.item p{margin:0;color:#999;line-height:1.6;font-size:13px}
+.contact h2{font-size:clamp(45px,8vw,105px);line-height:.9;letter-spacing:-.07em;margin:0 0 35px}
+.contact-links{display:flex;flex-wrap:wrap;gap:10px}
+.contact-links a{border:1px solid #333;padding:13px 16px;font-size:11px;letter-spacing:.08em;transition:.2s}
+.contact-links a:hover{background:#f4f4f0;color:#050505}
+footer{padding:25px 7vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#666;font-size:10px;letter-spacing:.1em}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){
+ nav{display:none}
+ section{padding:100px 6vw 65px}
+ .about-grid,.projects{grid-template-columns:1fr}
+ .skills{grid-template-columns:repeat(2,1fr)}
+ .item{grid-template-columns:1fr;gap:8px}
+ .number{right:6vw}
+}
+@media(max-width:480px){
+ h1{font-size:18vw}
+ .skills{grid-template-columns:1fr}
+ .project h3{font-size:23px}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<header>
+  <div class="logo">MM / 2027</div>
+  <nav>
+    <a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#projects">PROJECTS</a>
+    <a href="#achievements">ACHIEVEMENTS</a><a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner reveal">
+    <div class="kicker">ASPIRING SOFTWARE DEVELOPER · AI & ML ENTHUSIAST</div>
+    <h1>MARUFA<br><span class="stroke">MULLA</span></h1>
+    <p>Final-year Computer Science Engineering student with a growing interest in AI, Machine Learning and software development — currently building projects and preparing for placements.</p>
+    <div class="pills">
+      <span class="pill">PYTHON</span><span class="pill">JAVA</span><span class="pill">C</span>
+      <span class="pill">AI / ML</span><span class="pill">WEB TECHNOLOGY</span>
+    </div>
+  </div>
+  <div class="scroll">SCROLL / SWIPE TO EXPLORE ↓</div>
+  <div class="number">01</div>
+</section>
+
+<section id="about">
+<div class="container reveal">
+  <div class="section-head"><h2>ABOUT</h2><span>02 / 06</span></div>
+  <div class="about-grid">
+    <div>
+      <p class="big">Final-year CSE student, growing interest in AI, ML and software development, currently preparing for placements, looking for an entry-level opportunity to apply Python, web tech and ML to build practical solutions.</p>
+      <p class="muted">Based in Vijayapura, Karnataka.</p>
+    </div>
+    <div class="info">
+      <div class="info-row"><span>Degree</span><span>B.E. Computer Science & Engineering</span></div>
+      <div class="info-row"><span>Institute</span><span>SECAB Institute of Engineering & Technology, VTU</span></div>
+      <div class="info-row"><span>Timeline</span><span>2023–2027 · Expected</span></div>
+      <div class="info-row"><span>CGPA</span><span>8.0 · up to 6th semester</span></div>
+      <div class="info-row"><span>12th</span><span>Radiant PU College</span></div>
+      <div class="info-row"><span>10th</span><span>St. Joseph English Medium School</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container reveal">
+  <div class="section-head"><h2>SKILLS</h2><span>03 / 06</span></div>
+  <div class="skills">
+    <div class="skill"><div>01</div><b>Python · Java · C</b><small>Programming languages and problem-solving foundations.</small></div>
+    <div class="skill"><div>02</div><b>HTML · CSS</b><small>Web technologies for building practical interfaces.</small></div>
+    <div class="skill"><div>03</div><b>Artificial Intelligence</b><small>Exploring intelligent systems and applied AI.</small></div>
+    <div class="skill"><div>04</div><b>Machine Learning</b><small>Predictive modelling and image/data-driven solutions.</small></div>
+    <div class="skill"><div>05</div><b>Git · GitHub</b><small>Version control and project collaboration.</small></div>
+    <div class="skill"><div>06</div><b>VS Code</b><small>Primary development environment.</small></div>
+    <div class="skill"><div>07</div><b>Microsoft 365 Copilot</b><small>AI-assisted productivity and workflows.</small></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container reveal">
+  <div class="section-head"><h2>PROJECTS</h2><span>04 / 06</span></div>
+  <div class="projects">
+    <a class="project" href="https://github.com/Marufa-mulla7" target="_blank">
+      <div class="num">01 / FINAL YEAR</div><h3>Eye Anomaly Detection in Humans Using Machine Learning</h3>
+      <p>ML system scanning eye image data for anomalies to assist early diagnosis.</p>
+      <div class="tech"><span>PYTHON</span><span>MACHINE LEARNING</span><span>IMAGE DATA</span></div>
+    </a>
+    <a class="project" href="https://github.com/Marufa-mulla7" target="_blank">
+      <div class="num">02 / COMPUTER VISION</div><h3>Satellite Deforestation Detector</h3>
+      <p>Land-cover classifier flagging deforestation and vegetation change from satellite imagery.</p>
+      <div class="tech"><span>PYTHON</span><span>AI / ML</span><span>SATELLITE IMAGERY</span></div>
+    </a>
+    <a class="project" href="https://github.com/Marufa-mulla7" target="_blank">
+      <div class="num">03 / PREDICTIVE ANALYTICS</div><h3>Customer Churn Prediction & Risk Dashboard</h3>
+      <p>Churn-prediction model with a dashboard ranking customers by risk.</p>
+      <div class="tech"><span>PYTHON</span><span>ML</span><span>DASHBOARD</span></div>
+    </a>
+    <a class="project" href="https://github.com/Marufa-mulla7" target="_blank">
+      <div class="num">04 / MINI PROJECT</div><h3>Computer Science Department Chatbot</h3>
+      <p>Chatbot answering common department queries and making information easier to access.</p>
+      <div class="tech"><span>PYTHON</span><span>CHATBOT</span></div>
+    </a>
+  </div>
+  <p class="muted" style="margin-top:20px;font-size:12px">All projects → <a href="https://github.com/Marufa-mulla7" target="_blank"><u>github.com/Marufa-mulla7</u></a></p>
+</div>
+</section>
+
+<section id="achievements">
+<div class="container reveal">
+  <div class="section-head"><h2>ACHIEVEMENTS</h2><span>05 / 06</span></div>
+  <div class="timeline">
+    <div class="item"><div class="date">IDEATHON</div><div><h3>Top 25 of 61 teams</h3><p>Participated in an Ideathon in Belagavi and cleared the first round.</p></div></div>
+    <div class="item"><div class="date">LEADERSHIP</div><div><h3>Team leader & team member</h3><p>Served as team leader and team member across activities.</p></div></div>
+    <div class="item"><div class="date">CAMPUS</div><div><h3>Event host & anchor</h3><p>Skilled anchor and event host on campus.</p></div></div>
+    <div class="item"><div class="date">SPORTS</div><div><h3>College sports activities</h3><p>Participated in college sports activities on multiple occasions.</p></div></div>
+  </div>
+  <div style="margin-top:55px">
+    <div class="kicker">CERTIFICATIONS</div>
+    <div class="timeline">
+      <div class="item"><div class="date">JUL 2026</div><div><h3>Data Analytics Job Simulation — Deloitte</h3><p>via Forage</p></div></div>
+      <div class="item"><div class="date">JUN 2026</div><div><h3>Artificial Intelligence Fundamentals — IBM SkillsBuild</h3></div></div>
+      <div class="item"><div class="date">MICROSOFT</div><div><h3>Introduction to Microsoft 365 Copilot</h3><p>Microsoft Learn</p></div></div>
+      <div class="item"><div class="date">APR 2026</div><div><h3>Upskilling with AI: Mini Web App Development</h3><p>AZ Career Link</p></div></div>
+      <div class="item"><div class="date">FEB 2026</div><div><h3>Exploratory Data Analysis with Python & GenAI</h3><p>Analytics Vidhya</p></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<div class="container reveal">
+  <div class="kicker">06 / 06 · CONTACT</div>
+  <h2>LET'S BUILD<br><span class="stroke">SOMETHING.</span></h2>
+  <div class="contact-links">
+    <a href="mailto:marufamulla77@gmail.com">EMAIL</a>
+    <a href="https://linkedin.com/in/marufa-mulla-6a626b2ba" target="_blank">LINKEDIN</a>
+    <a href="https://github.com/Marufa-mulla7" target="_blank">GITHUB</a>
+  </div>
+  <p class="muted" style="margin-top:28px">Vijayapura, Karnataka · marufamulla77@gmail.com</p>
+</div>
+</section>
+</main>
+
+<footer><span>MARUFA MULLA</span><span>ASPIRING SOFTWARE DEVELOPER · AI & ML</span></footer>
+
+<script>
+const cursor=document.getElementById('cursor');
+if(matchMedia('(pointer:fine)').matches){
+ document.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+ document.querySelectorAll('a,.skill,.project').forEach(el=>{
+   el.addEventListener('mouseenter',()=>{cursor.style.width='34px';cursor.style.height='34px'});
+   el.addEventListener('mouseleave',()=>{cursor.style.width='16px';cursor.style.height='16px'});
+ });
+}else cursor.style.display='none';
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+
+let startX=0,startY=0;
+document.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;startY=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{
+ const dx=e.changedTouches[0].clientX-startX,dy=e.changedTouches[0].clientY-startY;
+ if(Math.abs(dx)>65 && Math.abs(dx)>Math.abs(dy)){
+   const links=[...document.querySelectorAll('nav a')];
+   const ids=['home','about','skills','projects','achievements','contact'];
+   const current=ids.reduce((best,id,idx)=>{
+     const d=Math.abs(document.getElementById(id).getBoundingClientRect().top);
+     return d<best.d?{d,idx}:best},{d:Infinity,idx:0}).idx;
+   const next=Math.max(0,Math.min(ids.length-1,current+(dx<0?1:-1)));
+   document.getElementById(ids[next]).scrollIntoView({behavior:'smooth'});
+ }
+},{passive:true});
+</script>
+</body>
+</html>
